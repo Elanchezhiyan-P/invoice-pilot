@@ -142,19 +142,19 @@ Authorization: Bearer <token>
 
 ### 🔐 Swagger UI
 
-<img src="./assets/swagger-ui.png" alt="Swagger UI" width="100%" />
+![Swagger UI](./Assets/swagger-ui.png)
 
 ### 📩 Email Screenshot
 
-<img src="./assets/email.png" alt="Email received" width="100%" />
+![Email Screenshot](./Assets/email.png)
 
 ### 🧾 Invoice PDF Preview
 
-<img src="./assets/invoice-pdf-image.png" alt="PDF Screenshot" width="100%" />
+![Invoice PDF](./Assets/invoice-pdf-image.png)
 
 ### 📄 Sample PDF
 
-[📥 Download Invoice PDF](./assets/invoice-may-2025.pdf)
+![📥 Download Invoice PDF](./Assets/invoice-may-2025.pdf)
 
 ## 🧰 Dev Tools
 
