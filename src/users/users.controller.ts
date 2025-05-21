@@ -23,6 +23,7 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
+import { RoleName } from 'src/role/role.enum';
 
 @ApiBearerAuth('access-token')
 @ApiTags('Users')
@@ -38,12 +39,13 @@ export class UsersController {
   @ApiQuery({
     name: 'role',
     required: false,
+    enum: RoleName,
     description: 'Optional role filter',
   })
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Admin', 'SuperAdmin')
+  @Roles(RoleName.SuperAdmin, RoleName.Admin)
   @Get()
-  async findAll(@Query('role') role?: 'SuperAdmin' | 'Admin' | 'User') {
+  async findAll(@Query('role') role?: RoleName) {
     return this.usersService.findAll(role);
   }
 
@@ -51,8 +53,7 @@ export class UsersController {
   @ApiParam({ name: 'id', type: Number })
   @ApiResponse({ status: 200, description: 'User fetched successfully.' })
   @ApiResponse({ status: 404, description: 'User not found.' })
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('User')
+  @UseGuards(JwtAuthGuard)
   @Get(':id')
   async findById(@Param('id') id: string) {
     return this.usersService.findById(+id);
@@ -63,7 +64,7 @@ export class UsersController {
   @ApiResponse({ status: 201, description: 'User created successfully.' })
   @ApiResponse({ status: 400, description: 'Bad Request.' })
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Admin', 'SuperAdmin')
+  @Roles(RoleName.SuperAdmin, RoleName.Admin)
   @Post() // POST /users
   async createUser(@Body() user: CreateUserDto) {
     return this.usersService.createUser(user);
@@ -84,7 +85,7 @@ export class UsersController {
   @ApiResponse({ status: 200, description: 'User deleted successfully.' })
   @ApiResponse({ status: 404, description: 'User not found.' })
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Admin', 'SuperAdmin')
+  @Roles(RoleName.SuperAdmin, RoleName.Admin)
   @Delete(':id') // DELETE /users/:id
   async deleteUser(@Param('id') id: string) {
     return this.usersService.deleteUser(+id);

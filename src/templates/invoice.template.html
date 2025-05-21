@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 12px; }
+    .header { text-align: right; margin-bottom: 20px; }
+    .company { font-weight: bold; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 6px; text-align: left; }
+    .totals td { text-align: right; }
+    .balance-due { background: #333; color: white; font-weight: bold; padding: 10px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="company">{{ companyName }}</div>
+    <div>{{ address }}</div>
+    <div>{{ contact }}</div>
+    <div>Date: {{ date }}</div>
+  </div>
+
+  <div>
+    <strong>Bill To:</strong> {{ billTo.name }}<br>
+    {{ billTo.company }}<br>
+    {{ billTo.address }}<br>
+    {{ billTo.phone }}<br>
+    {{ billTo.email }}<br>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Description</th><th>Qty</th><th>Unit Price</th><th>Total</th></tr>
+    </thead>
+    <tbody>
+      {{#each items}}
+      <tr>
+        <td>{{ this.description }}</td>
+        <td>{{ this.qty }}</td>
+        <td>${{ this.unitPrice }}</td>
+        <td>${{ this.total }}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+    <tfoot class="totals">
+      <tr><td colspan="3">Subtotal</td><td>${{ subtotal }}</td></tr>
+      <tr><td colspan="3">Discount</td><td>${{ discount }}</td></tr>
+      <tr><td colspan="3">Subtotal After Discount</td><td>${{ netTotal }}</td></tr>
+      <tr><td colspan="3">Tax ({{ taxRate }}%)</td><td>${{ taxAmount }}</td></tr>
+      <tr><td colspan="3">Shipping</td><td>${{ shipping }}</td></tr>
+    </tfoot>
+  </table>
+
+  <div class="balance-due">
+    Balance Due: ${{ totalDue }}
+  </div>
+</body>
+</html>
