@@ -67,8 +67,8 @@ src/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/invoicepilot.git
-cd invoicepilot
+git clone https://github.com/Elanchezhiyan-P/invoice-pilot.git
+cd invoice-pilot
 ```
 
 ### 2. Install Dependencies
@@ -89,6 +89,8 @@ DB_USERNAME=postgres
 DB_PASSWORD=your_db_password
 DB_NAME=invoicepilot
 JWT_SECRET=your_super_secret
+EMAIL_USER=xxxx@xxxx.com
+EMAIL_PASS=your_super_secret_app_password
 ```
 
 ### 4. Run the Application
@@ -136,24 +138,35 @@ Authorization: Bearer <token>
 | Admin      | Manage org users & customers             |
 | User       | Limited access to invoices or their data |
 
+## 📌 Sample Output Snippet
+
+### 🔐 Swagger UI
+
+![Swagger UI](./Assets/swagger-ui.png)
+
+### 📩 Email Screenshot
+
+![Email Screenshot](./Assets/email.png)
+
+### 🧾 Invoice PDF Preview
+
+![Invoice PDF](./Assets/invoice-pdf-image.png)
+
+### 📄 Sample PDF
+
+[📥 Download Invoice PDF](https://github.com/Elanchezhiyan-P/invoice-pilot/raw/dev/Assets/invoice-may-2025.pdf)
+
 ## 🧰 Dev Tools
 
-VS Code debugger support (.vscode/launch.json)
+- VS Code debugger support (.vscode/launch.json)
 
-Hot reload with npm run start:dev
+- Hot reload with npm run start:dev
 
-Swagger (optional setup)
-
-## 📦 TODO
-
-- [x] Customer & Invoice CRUD
-- [x] Swagger documentation
-- [ ] Invoice PDF generation
-- [ ] Email delivery (Nodemailer)
+- Swagger
 
 ## 📄 License
 
-MIT © 2025 **Elanchezhiyan**
+MIT © 2025 **Elanchezhiyan P**
 
 ---
 
