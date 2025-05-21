@@ -154,7 +154,7 @@ Authorization: Bearer <token>
 
 ### 📄 Sample PDF
 
-![📥 Download Invoice PDF](./Assets/invoice-may-2025.pdf)
+[📥 Download Invoice PDF](https://github.com/Elanchezhiyan-P/invoice-pilot/raw/dev/Assets/invoice-may-2025.pdf)
 
 ## 🧰 Dev Tools
 
